@@ -1,0 +1,15 @@
+.page {
+  background-color: #000000;
+}
+
+.page > div {
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+}
+
+@media screen and (max-width: 894px) {
+  .page {
+    margin: auto;
+  }
+}
