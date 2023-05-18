@@ -1,3 +1,4 @@
+import React from 'react'
 import trashIconSrc from '../images/trash-icon.svg'
 import likeIconSrc from '../images/vector__like-button.svg'
 import exitIconSrc from '../images/vector__add.svg'
@@ -7,17 +8,41 @@ import Main from './Main.js'
 import Footer from './Footer.js'
 import PopupWithForm from './PopupWithForm';
 
-function App() {
+export default function App() {
+
+  const [isEditProfilePopupOpen, setIsEditProfileClick] = React.useState(false)
+  const [isAddPlacePopupOpen, setIsAddPlacePopupClick] = React.useState(false)
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupClick] = React.useState(false)
+
+  function onEditAvatarClick() {
+    setIsEditAvatarPopupClick(true)
+    //opacity.classList.add('page-opacity');
+  }
+  function onAddPlaceClick() {
+    setIsAddPlacePopupClick(true)
+    //opacity.classList.add('page-opacity');
+  }
+  function onEditProfileClick() {
+    setIsEditProfileClick(true)
+    //opacity.classList.add('page-opacity');
+  }
+
+  function closeAllPopups() {
+    setIsEditAvatarPopupClick(false)
+    setIsAddPlacePopupClick(false)
+    setIsEditProfileClick(false)
+  }
+
   return (
     <div className="page">
       <div id="opacity-block">
         <Header />
-        <Main />
+        <Main eventClicks={{onAddPlaceClick, onEditAvatarClick, onEditProfileClick}} />
         <Footer />
       </div>
-      <PopupWithForm name="edit" title ="Editar Perfíl"/>
-      <PopupWithForm name="image" title ="Novo Local"/>
-      <PopupWithForm name="picture" title ="Atualizar foto do perfil"/>
+      <PopupWithForm name="edit" title ="Editar Perfíl" popupState={isEditProfilePopupOpen} onClose={closeAllPopups}/>
+      <PopupWithForm name="image" title ="Novo Local" popupState={isAddPlacePopupOpen} onClose={closeAllPopups}/>
+      <PopupWithForm name="picture" title ="Atualizar foto do perfil" popupState={isEditAvatarPopupOpen} onClose={closeAllPopups}/>
       <section className="image-click popup">
         <div className="image-click__block">
           <img src={exitIconSrc} className="image-click__exit" alt="Botão de fechar o pop-up" />
@@ -41,5 +66,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

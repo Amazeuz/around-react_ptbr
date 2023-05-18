@@ -2,25 +2,16 @@ import React from 'react';
 import exitIconSrc from '../images/vector__add.svg'
 
 export default function PopupWithForm(props) {
-
-
-  function closeForm(evt) {
-    //const popupClass = document.querySelector(`#form-${props.name}`)
-    evt.target.parentElement.classList.remove('popup_is-opened');
-    console.log('formulário fechado')
-  }
-
-
+  let isOpen = props.popupState
 
   function submitForm(evt) {
     evt.preventDefault();
-    console.log('submitado')
   }
 
   return (
     <>
-      <section className={'form popup'} name={props.name} id={`form-${props.name}`}>
-        <img src={exitIconSrc} className="form__exit" onClick={closeForm} alt="Botão de fechar o pop-up" />
+      <section className={`form popup ${isOpen ? 'popup_is-opened' : ''}`} name={props.name} id={`form-${props.name}`}>
+        <img src={exitIconSrc} className="form__exit" onClick={props.onClose} alt="Botão de fechar o pop-up" />
         <form name="info" className="form__items" noValidate>
           <h1 className="form__title">{props.title}</h1>
           <fieldset className="form__input-container">
