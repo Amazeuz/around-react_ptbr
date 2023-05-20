@@ -4,8 +4,8 @@ import likeIconSrc from '../images/vector__like-button.svg'
 
 export default function Card(props) {
   return (
-    <div className="item" key={props.key}>
-      <img className="item__image" src={`${props.link}`} alt="Imagem adicionada pelo usuário" />
+    <div className="item">
+      <img className="item__image" src={`${props.link}`} onClick={props.onCardClick}  alt="Imagem adicionada pelo usuário" />
       <img src={trashIconSrc} className="item__trash-icon" id="form-confirmation-trigger" alt="Ícone de lixo, para excluir a foto desejada" />
       <div className="item__container">
         <h1 className="item__title">{props.name}</h1>

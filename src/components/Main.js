@@ -10,7 +10,6 @@ function Main(props) {
   const [userDescription, setUserDescription] = React.useState('')
   const [userAvatar, setUserAvatar] = React.useState('')
   const [cards, setCards] = React.useState([])
-  console.log('MAIN CHAMADO')
 
   api.loadUserInfo().then(data => {
     setUserName(data.name)
@@ -43,7 +42,7 @@ function Main(props) {
       </section>
       <section className="gallery">
         {cards.map((card, i) => (
-          <Card key={i} name={card.name} link={card.link} likes={card.likes}/>
+          <Card key={i} name={card.name} link={card.link} likes={card.likes} onCardClick={props.eventClicks.handleCardClick}/>
           ))
         }
       </section>
