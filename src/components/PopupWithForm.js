@@ -2,7 +2,7 @@ import React from 'react';
 import exitIconSrc from '../images/vector__add.svg'
 
 export default function PopupWithForm(props) {
-  let isOpen = props.popupState
+  const isOpen = props.popupState
 
   function submitForm(evt) {
     evt.preventDefault();

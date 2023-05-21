@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Header from './Header.js'
 import Main from './Main.js'
@@ -8,24 +8,29 @@ import ImagePopup from './ImagePopup'
 
 export default function App() {
 
-  const [isEditProfilePopupOpen, setIsEditProfileClick] = React.useState(false)
-  const [isAddPlacePopupOpen, setIsAddPlacePopupClick] = React.useState(false)
-  const [isEditAvatarPopupOpen, setIsEditAvatarPopupClick] = React.useState(false)
-  const [selectedCard, setSelectedCard] = React.useState('')
+  const [isEditProfilePopupOpen, setIsEditProfileClick] = useState(false)
+  const [isAddPlacePopupOpen, setIsAddPlacePopupClick] = useState(false)
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupClick] = useState(false)
+  const [pageOpacity, setPageOpacity] = useState(false);
+  const [selectedCard, setSelectedCard] = useState('')
 
   function handleCardClick(evt) {
     const cardElement = evt.target.parentElement
     setSelectedCard(cardElement)
+    setPageOpacity(true)
   }
 
   function onEditAvatarClick() {
     setIsEditAvatarPopupClick(true)
+    setPageOpacity(true)
   }
   function onAddPlaceClick() {
     setIsAddPlacePopupClick(true)
+    setPageOpacity(true)
   }
   function onEditProfileClick() {
     setIsEditProfileClick(true)
+    setPageOpacity(true)
   }
 
   function closeAllPopups() {
@@ -33,11 +38,12 @@ export default function App() {
     setIsAddPlacePopupClick(false)
     setIsEditProfileClick(false)
     setSelectedCard('')
+    setPageOpacity(false)
   }
 
   return (
     <div className="page">
-      <div id="opacity-block">
+      <div className={pageOpacity ? 'page-opacity' : ''} id="opacity-block">
         <Header />
         <Main eventClicks={{onAddPlaceClick, onEditAvatarClick, onEditProfileClick, handleCardClick}} />
         <Footer />

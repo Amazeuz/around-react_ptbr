@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import openEditPopupSrc from '../images/vector__edit.svg'
 import openAddPopupSrc from '../images/vector__add.svg'
 import photoEditIcon from '../images/profile-photo-edit.svg'
@@ -6,18 +6,20 @@ import Card from './Card';
 import { api } from '../utils/Api';
 
 function Main(props) {
-  const [userName, setUserName] = React.useState('')
-  const [userDescription, setUserDescription] = React.useState('')
-  const [userAvatar, setUserAvatar] = React.useState('')
-  const [cards, setCards] = React.useState([])
+  const [userName, setUserName] = useState('')
+  const [userDescription, setUserDescription] = useState('')
+  const [userAvatar, setUserAvatar] = useState('')
+  const [cards, setCards] = useState([])
 
-  api.loadUserInfo().then(data => {
-    setUserName(data.name)
-    setUserAvatar(data.avatar)
-    setUserDescription(data.about)
-  })
+  useEffect(() => {
+    api.loadUserInfo().then((data) => {
+      setUserName(data.name);
+      setUserAvatar(data.avatar);
+      setUserDescription(data.about);
+    });
+  }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     api.getServerCards().then(data => {
       setCards(data)
     })

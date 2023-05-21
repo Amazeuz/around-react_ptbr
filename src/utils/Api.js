@@ -51,13 +51,20 @@ class Api {
     }
   }
 
-  addServerCard(name, link) {
+  _getFormElement(formId) {
     let formElement;
+
     this.popupsArray.forEach((form) => {
-      if (form._popupElement.id === 'form-image') {
+      if (form._popupElement.id === formId) {
         formElement = form
       }
     })
+
+    return formElement;
+  }
+
+  addServerCard(name, link) {
+    const formElement = this._getFormElement('form-image')
 
     this._loadingForm(formElement, true, 'Criar')
     return fetch(`${this._baseUrl}/cards`, {
@@ -86,12 +93,8 @@ class Api {
   }
 
   editUserInfo({firstInput, secondInput}) {
-    let formElement;
-    this.popupsArray.forEach((form) => {
-      if (form._popupElement.id === 'form-edit') {
-        formElement = form
-      }
-    })
+    const formElement = this._getFormElement('form-edit')
+
     this._loadingForm(formElement, true, 'Salvar')
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
@@ -173,12 +176,7 @@ class Api {
   }
 
   changeProfilePicture(data) {
-    let formElement;
-    this.popupsArray.forEach((form) => {
-      if (form._popupElement.id === 'form-picture') {
-        formElement = form
-      }
-    })
+    const formElement = this._getFormElement('form-picture')
     this._loadingForm(formElement, true, 'Salvar')
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
