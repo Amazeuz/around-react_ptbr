@@ -121,27 +121,9 @@ class Api {
     })
   }
 
-  addLike(cardId) {
+  toggleCardLike(cardId, isLiked) {
     return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
-      method: 'PUT',
-      headers: {
-        authorization: this._authorization
-      }
-    })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Algo deu errado: ${res.status}`);
-    })
-    .catch((err) => {
-      console.log("Erro. A solicitação falhou: ", err);
-    })
-  }
-
-  removeLike(cardId) {
-    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
-      method: 'DELETE',
+      method: isLiked ? 'PUT' : 'DELETE',
       headers: {
         authorization: this._authorization
       }
