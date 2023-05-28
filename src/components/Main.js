@@ -8,7 +8,7 @@ import { api } from '../utils/Api';
 
 function Main(props) {
   const [cards, setCards] = useState([])
-  const currentUser = React.useContext(CurrentUserContext)
+  const currentUser = useContext(CurrentUserContext)
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
@@ -28,7 +28,6 @@ function Main(props) {
       setCards(data)
     })
   }, [])
-
 
   return (
     <main className="content">

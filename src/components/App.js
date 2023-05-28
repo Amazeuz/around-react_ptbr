@@ -5,6 +5,7 @@ import Main from './Main.js'
 import Footer from './Footer.js'
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup'
+import EditProfilePopup from './EditProfilePopup'
 import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 import { api } from '../utils/Api';
 
@@ -50,6 +51,12 @@ export default function App() {
     setPageOpacity(false)
   }
 
+  function handleUpdateUser(data) {
+    api.editUserInfo(data)
+
+    closeAllPopups()
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
@@ -58,7 +65,7 @@ export default function App() {
           <Main eventClicks={{onAddPlaceClick, onEditAvatarClick, onEditProfileClick, handleCardClick}} />
           <Footer />
         </div>
-        <PopupWithForm name="edit" title ="Editar Perfíl" popupState={isEditProfilePopupOpen} onClose={closeAllPopups}/>
+        <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} />
         <PopupWithForm name="image" title ="Novo Local" popupState={isAddPlacePopupOpen} onClose={closeAllPopups}/>
         <PopupWithForm name="picture" title ="Atualizar foto do perfil" popupState={isEditAvatarPopupOpen} onClose={closeAllPopups}/>
         <ImagePopup card={selectedCard} onClose={closeAllPopups}/>

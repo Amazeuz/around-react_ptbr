@@ -92,10 +92,10 @@ class Api {
     })
   }
 
-  editUserInfo({firstInput, secondInput}) {
-    const formElement = this._getFormElement('form-edit')
+  editUserInfo({name, about}) {
+    //const formElement = this._getFormElement('form-edit')
 
-    this._loadingForm(formElement, true, 'Salvar')
+    //this._loadingForm(formElement, true, 'Salvar')
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
       headers: {
@@ -103,8 +103,8 @@ class Api {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        name: firstInput,
-        about: secondInput
+        name: name,
+        about: about
       })
     })
     .then((res) => {
@@ -116,9 +116,9 @@ class Api {
     .catch((err) => {
       console.log("Erro. A solicitação falhou: ", err);
     })
-    .finally(() => {
-      this._loadingForm(formElement, false, 'Salvar')
-    })
+    //.finally(() => {
+      //this._loadingForm(formElement, false, 'Salvar')
+    //})
   }
 
   toggleCardLike(cardId, isLiked) {
