@@ -12,11 +12,11 @@ export default function PopupWithForm(props) {
           <h1 className="form__title">{props.title}</h1>
           <fieldset className="form__input-container">
             <label className="form__field">
-              <input type='text' className="form__input" value={props.firstInputValue} onChange={props.firstInput} placeholder="Nome" minLength="2" maxLength="40" required />
+              <input type='text' className="form__input" value={props.firstInputValue} onChange={props.firstInput} />
               <span className="form__input-error"></span>
             </label>
             <label className="form__field">
-              <input type='text' className="form__input" value={props.secondInputValue} onChange={props.secondInput} placeholder="Sobre mim" minLength="2" maxLength="200" required />
+              <input type='text' className="form__input" value={props.secondInputValue} onChange={props.secondInput} />
               <span className="form__input-error"></span>
             </label>
             <button type="submit" className="form__button">Salvar</button>

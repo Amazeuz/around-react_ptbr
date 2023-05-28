@@ -157,9 +157,10 @@ class Api {
     })
   }
 
-  changeProfilePicture(data) {
-    const formElement = this._getFormElement('form-picture')
-    this._loadingForm(formElement, true, 'Salvar')
+  changeProfilePicture(avatar) {
+    //const formElement = this._getFormElement('form-picture')
+    //this._loadingForm(formElement, true, 'Salvar')
+    console.log(avatar)
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
       headers: {
@@ -167,7 +168,7 @@ class Api {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        avatar: data[0]
+        avatar: avatar
       })
     })
     .then((res) => {
@@ -179,9 +180,9 @@ class Api {
     .catch(err => {
       console.log("Erro. A solicitação falhou: ", err);
     })
-    .finally(() => {
-      this._loadingForm(formElement, false, 'Salvar')
-    })
+    //.finally(() => {
+    //  this._loadingForm(formElement, false, 'Salvar')
+    //})
   }
 }
 
