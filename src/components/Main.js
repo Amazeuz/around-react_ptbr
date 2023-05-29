@@ -1,33 +1,12 @@
-import React, { useState, useEffect, useContext} from 'react';
+import React, { useContext} from 'react';
 import openEditPopupSrc from '../images/vector__edit.svg'
 import openAddPopupSrc from '../images/vector__add.svg'
 import photoEditIcon from '../images/profile-photo-edit.svg'
 import Card from './Card';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
-import { api } from '../utils/Api';
 
 function Main(props) {
-  const [cards, setCards] = useState([])
   const currentUser = useContext(CurrentUserContext)
-
-  function handleCardLike(card) {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
-
-    api.toggleCardLike(card._id, !isLiked).then((newCard) => {
-      setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-    });
-  }
-
-  function handleCardDelete(card) {
-    api.deleteCard(card._id)
-    setCards(cards.filter(c => c._id !== card._id))
-  }
-
-  useEffect(() => {
-    api.getServerCards().then(data => {
-      setCards(data)
-    })
-  }, [])
 
   return (
     <main className="content">
@@ -46,7 +25,7 @@ function Main(props) {
         <img src={openAddPopupSrc} className="profile__add" onClick={props.eventClicks.onAddPlaceClick} id="form-image-trigger" alt="Botão de adicionar imagens á galeria" />
       </section>
       <section className="gallery">
-        {cards.map((card, i) => (
+        {props.cardList.map((card, i) => (
           <Card
             key={i}
             name={card.name}
@@ -54,8 +33,8 @@ function Main(props) {
             likes={card.likes}
             _id={card._id}
             owner={card.owner}
-            onCardLike={handleCardLike}
-            onCardDelete={handleCardDelete}
+            onCardLike={props.onCardLike}
+            onCardDelete={props.onCardDelete}
             onCardClick={props.eventClicks.handleCardClick}
           />
           ))

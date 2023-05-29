@@ -64,9 +64,9 @@ class Api {
   }
 
   addServerCard(name, link) {
-    const formElement = this._getFormElement('form-image')
+    //const formElement = this._getFormElement('form-image')
 
-    this._loadingForm(formElement, true, 'Criar')
+    //this._loadingForm(formElement, true, 'Criar')
     return fetch(`${this._baseUrl}/cards`, {
       method: 'POST',
       headers: {
@@ -87,9 +87,9 @@ class Api {
     .catch((err) => {
       console.log("Erro. A solicitação falhou: ", err);
     })
-    .finally(() => {
-      this._loadingForm(formElement, false, 'Criar')
-    })
+    //.finally(() => {
+    //  this._loadingForm(formElement, false, 'Criar')
+    //})
   }
 
   editUserInfo({name, about}) {
@@ -160,7 +160,6 @@ class Api {
   changeProfilePicture(avatar) {
     //const formElement = this._getFormElement('form-picture')
     //this._loadingForm(formElement, true, 'Salvar')
-    console.log(avatar)
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
       headers: {
