@@ -1,6 +1,6 @@
 Around the U.S
 
-Around the U.S é uma rede social que pega cards do servidor e mostra no perfíl do usuário. A página possui funcionalidades como abrir formulários, e abrir a imagem do card clicado. Outras funcionalidades estão para ser adicionadas.
+Around the U.S é uma rede social de compartilhamento de imagens e informações entre os usuários. A página possúi funcionalidades como abrir formulários, abrir a imagem do card clicado, editar nome e descrição, mudar foto de perfil, adicionar novos cards, curtir cards e deletar cards.
 
 A página é altamente responsiva, com diferentes layouts para diferentes tipos de dispositivos:
 
@@ -11,5 +11,11 @@ A página é altamente responsiva, com diferentes layouts para diferentes tipos 
 - Resoluções superiores;
 
 Nesse projeto foram utilizados algumas tecnologias desenvolvimento web, como HTML, CSS e Javascript de git e metodologia BEM, webpack, React, além de suporte para a API do servidor.
+
+Funcionalidades a serem adicionadas:
+
+- Validação de formulário
+- Popup 'Tem certeza ?' ao excluir cartões
+- Fechar Popup apenas com o fim da solicitação a API
 
 Link do site para github pages: https://amazeuz.github.io/around-react_ptbr/

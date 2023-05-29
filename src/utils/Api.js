@@ -2,7 +2,6 @@ class Api {
   constructor(options) {
     this._baseUrl = options.baseUrl
     this._authorization = options.headers.authorization;
-    this.popupsArray = []
   }
 
   loadUserInfo() {
@@ -39,34 +38,7 @@ class Api {
     });
   }
 
-  _loadingForm(formElement, isLoading, buttonDefaultText) {
-    const formButton = formElement._popupElement.querySelector('.form__button')
-
-    if (isLoading) {
-      formButton.textContent = "Salvando..."
-    }
-    else {
-      formElement.close()
-      setTimeout(() => {formButton.textContent = buttonDefaultText}, 1000)
-    }
-  }
-
-  _getFormElement(formId) {
-    let formElement;
-
-    this.popupsArray.forEach((form) => {
-      if (form._popupElement.id === formId) {
-        formElement = form
-      }
-    })
-
-    return formElement;
-  }
-
   addServerCard(name, link) {
-    //const formElement = this._getFormElement('form-image')
-
-    //this._loadingForm(formElement, true, 'Criar')
     return fetch(`${this._baseUrl}/cards`, {
       method: 'POST',
       headers: {
@@ -87,15 +59,9 @@ class Api {
     .catch((err) => {
       console.log("Erro. A solicitação falhou: ", err);
     })
-    //.finally(() => {
-    //  this._loadingForm(formElement, false, 'Criar')
-    //})
   }
 
   editUserInfo({name, about}) {
-    //const formElement = this._getFormElement('form-edit')
-
-    //this._loadingForm(formElement, true, 'Salvar')
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
       headers: {
@@ -116,9 +82,6 @@ class Api {
     .catch((err) => {
       console.log("Erro. A solicitação falhou: ", err);
     })
-    //.finally(() => {
-      //this._loadingForm(formElement, false, 'Salvar')
-    //})
   }
 
   toggleCardLike(cardId, isLiked) {
@@ -158,8 +121,6 @@ class Api {
   }
 
   changeProfilePicture(avatar) {
-    //const formElement = this._getFormElement('form-picture')
-    //this._loadingForm(formElement, true, 'Salvar')
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
       headers: {
@@ -179,9 +140,6 @@ class Api {
     .catch(err => {
       console.log("Erro. A solicitação falhou: ", err);
     })
-    //.finally(() => {
-    //  this._loadingForm(formElement, false, 'Salvar')
-    //})
   }
 }
 
