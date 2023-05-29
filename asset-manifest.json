@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/around-react_ptbr/static/css/main.19590cb0.css",
+    "main.js": "/around-react_ptbr/static/js/main.cccb71eb.js",
+    "static/js/787.fae363fb.chunk.js": "/around-react_ptbr/static/js/787.fae363fb.chunk.js",
+    "static/media/Inter-SemiBoldItalic.woff?v=3.19": "/around-react_ptbr/static/media/Inter-SemiBoldItalic.463bdbfb28abad0fa6df.woff",
+    "static/media/Inter-BlackItalic.woff?v=3.19": "/around-react_ptbr/static/media/Inter-BlackItalic.ca1e738e4f349f27514d.woff",
+    "static/media/Inter-Italic.woff?v=3.19": "/around-react_ptbr/static/media/Inter-Italic.890025e726861dba417f.woff",
+    "static/media/Inter-SemiBold.woff?v=3.19": "/around-react_ptbr/static/media/Inter-SemiBold.cca62d21c8c555c392e5.woff",
+    "static/media/Inter-Black.woff?v=3.19": "/around-react_ptbr/static/media/Inter-Black.c6938660eec019fefd68.woff",
+    "static/media/Inter-Regular.woff?v=3.19": "/around-react_ptbr/static/media/Inter-Regular.8c206db99195777c6769.woff",
+    "static/media/Inter-SemiBoldItalic.woff2?v=3.19": "/around-react_ptbr/static/media/Inter-SemiBoldItalic.d9467ee321a8f38aefff.woff2",
+    "static/media/Inter-BlackItalic.woff2?v=3.19": "/around-react_ptbr/static/media/Inter-BlackItalic.cb2a7335650c690077fe.woff2",
+    "static/media/Inter-Italic.woff2?v=3.19": "/around-react_ptbr/static/media/Inter-Italic.cb10ffd7684cd9836a05.woff2",
+    "static/media/Inter-SemiBold.woff2?v=3.19": "/around-react_ptbr/static/media/Inter-SemiBold.b5f0f109bc88052d4000.woff2",
+    "static/media/Inter-Black.woff2?v=3.19": "/around-react_ptbr/static/media/Inter-Black.15ca31c0a2a68f76d2d1.woff2",
+    "static/media/Inter-Regular.woff2?v=3.19": "/around-react_ptbr/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
+    "static/media/Vector.svg": "/around-react_ptbr/static/media/Vector.c75819857ff1599f0c50e9fc06373cd9.svg",
+    "static/media/Line.svg": "/around-react_ptbr/static/media/Line.dbe85ea6278fa2b239bf9f4ad6d57ecc.svg",
+    "static/media/vector__like-button.svg": "/around-react_ptbr/static/media/vector__like-button.99043841e8bec6b9df2129636ccf9f8c.svg",
+    "index.html": "/around-react_ptbr/index.html",
+    "static/media/trash-icon.svg": "/around-react_ptbr/static/media/trash-icon.ba43124316072f7a8629205eb192dd29.svg",
+    "static/media/vector__liked-button.svg": "/around-react_ptbr/static/media/vector__liked-button.f8482d28867cec189b080874684d66c0.svg",
+    "static/media/vector__edit.svg": "/around-react_ptbr/static/media/vector__edit.6c7bf05444b9793fdf6e73a2dd202e7e.svg",
+    "static/media/profile-photo-edit.svg": "/around-react_ptbr/static/media/profile-photo-edit.ae1a976ddb506239e9f06655014e44a3.svg",
+    "static/media/vector__add.svg": "/around-react_ptbr/static/media/vector__add.bed8c136e13907f5eefb86d62a5fe29e.svg",
+    "main.19590cb0.css.map": "/around-react_ptbr/static/css/main.19590cb0.css.map",
+    "main.cccb71eb.js.map": "/around-react_ptbr/static/js/main.cccb71eb.js.map",
+    "787.fae363fb.chunk.js.map": "/around-react_ptbr/static/js/787.fae363fb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.19590cb0.css",
+    "static/js/main.cccb71eb.js"
+  ]
+}
