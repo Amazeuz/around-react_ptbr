@@ -7,7 +7,7 @@ import ImagePopup from './ImagePopup'
 import EditProfilePopup from './EditProfilePopup'
 import EditAvatarPopup from './EditAvatarPopup.js'
 import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
-import api from '../utils/api.js';
+import api from '../utils/Api.js';
 
 export default function App() {
 
