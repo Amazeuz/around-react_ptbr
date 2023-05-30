@@ -5,9 +5,9 @@ import Footer from './Footer.js'
 import AddPlacePopup from './AddPlacePopup.js';
 import ImagePopup from './ImagePopup'
 import EditProfilePopup from './EditProfilePopup'
-import EditAvatarPopup from './EditAvatarPopup.js'
+import EditAvatarPopup from './EditAvatarPopup'
 import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
-import api from '../utils/api.js';
+import api from '../utils/api'
 
 export default function App() {
 
