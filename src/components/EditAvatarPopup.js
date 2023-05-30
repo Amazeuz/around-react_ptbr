@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import exitIconSrc from '../images/vector__add.svg'
+import PopupWithForm from "./PopupWithForm";
 
 export default function EditAvatarPopup(props) {
   const avatarRef = useRef();
@@ -10,18 +10,11 @@ export default function EditAvatarPopup(props) {
   }
 
   return (
-    <section className={`form popup ${props.isOpen ? 'popup_is-opened' : ''}`} name='picture' id={`form-picture`}>
-      <img src={exitIconSrc} className="form__exit" onClick={props.onClose} alt="Botão de fechar o pop-up" />
-      <form name="info" className="form__items" onSubmit={handleSubmit} noValidate>
-        <h1 className="form__title">Atualizar foto de perfil</h1>
-        <fieldset className="form__input-container">
-          <label className="form__field">
-            <input type='url' ref={avatarRef} className="form__input" placeholder="URL da imagem" required />
-            <span className="form__input-error"></span>
-          </label>
-          <button type="submit" className="form__button">Salvar</button>
-        </fieldset>
-      </form>
-    </section>
+    <PopupWithForm isOpen={props.isOpen} onClose={props.onClose} onSubmit={handleSubmit} title="Atualizar foto" name="picture">
+      <label className="form__field">
+        <input type='url' ref={avatarRef} className="form__input" placeholder="URL da imagem" />
+        <span className="form__input-error"></span>
+      </label>
+    </PopupWithForm>
   )
 }
