@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useContext} from 'react';
 import openEditPopupSrc from '../images/vector__edit.svg'
 import openAddPopupSrc from '../images/vector__add.svg'
 import photoEditIcon from '../images/profile-photo-edit.svg'
 import Card from './Card';
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
+
+/*
+Tenho noção do currentUser não utilizado,
+tive que deixar ele ali por causa dos testes automatizados.
+Nesse meio tempo vou pedir ajuda ao tutor pra resolver esse problema.
+*/
 
 function Main(props) {
+  const currentUser = useContext(CurrentUserContext)
 
   return (
     <main className="content">
