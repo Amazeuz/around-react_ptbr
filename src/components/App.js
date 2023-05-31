@@ -102,7 +102,6 @@ export default function App() {
             onCardLike={handleCardLike}
             onCardDelete={handleCardDelete}
             cardList={cards}
-            currentUser={currentUser}
           />
           <Footer />
         </div>
