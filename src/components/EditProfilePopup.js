@@ -28,7 +28,7 @@ export default function EditProfilePopup(props) {
        name,
        about
      });
-   }
+  }
 
   return (
     <PopupWithForm isOpen={props.isOpen} onClose={props.onClose} onSubmit={handleSubmit} title="Editar Perfil" name="edit">

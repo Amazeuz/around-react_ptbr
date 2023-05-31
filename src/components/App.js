@@ -102,6 +102,9 @@ export default function App() {
             onCardLike={handleCardLike}
             onCardDelete={handleCardDelete}
             cardList={cards}
+            name={currentUser.name}
+            about={currentUser.about}
+            avatar={currentUser.avatar}
           />
           <Footer />
         </div>
