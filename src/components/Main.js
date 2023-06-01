@@ -5,12 +5,6 @@ import photoEditIcon from '../images/profile-photo-edit.svg'
 import Card from './Card';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
-/*
-Tenho noção do currentUser não utilizado,
-tive que deixar ele ali por causa dos testes automatizados.
-Nesse meio tempo vou pedir ajuda ao tutor pra resolver esse problema.
-*/
-
 function Main(props) {
   const currentUser = useContext(CurrentUserContext)
 
@@ -18,15 +12,15 @@ function Main(props) {
     <main className="content">
       <section className="profile">
         <div className="profile__image-container">
-          <img className="profile__photo" onClick={props.eventClicks.onEditAvatarClick} src={props.avatar} id="form-picture-trigger" alt="Foto de perfil do usuário" />
+          <img className="profile__photo" onClick={props.eventClicks.onEditAvatarClick} src={currentUser.avatar} id="form-picture-trigger" alt="Foto de perfil do usuário" />
           <img src={photoEditIcon} className="profile__edit-button" alt="Ícone de Edição da imagem de perfil" />
         </div>
         <div className="profile-info">
           <div>
-            <h1 className="profile__name">{props.name}</h1>
+            <h1 className="profile__name">{currentUser.name}</h1>
             <img src={openEditPopupSrc} className="profile__edit" onClick={props.eventClicks.onEditProfileClick} id="form-edit-trigger" alt="Botão de edição dos campos Nome e Sobre" />
           </div>
-          <h2 className="profile__about">{props.about}</h2>
+          <h2 className="profile__about">{currentUser.about}</h2>
         </div>
         <img src={openAddPopupSrc} className="profile__add" onClick={props.eventClicks.onAddPlaceClick} id="form-image-trigger" alt="Botão de adicionar imagens á galeria" />
       </section>

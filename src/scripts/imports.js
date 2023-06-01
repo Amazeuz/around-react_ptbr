@@ -1,4 +1,3 @@
-import exitIconSrc from '../images/vector__add.svg'
 import trashIconSrc from '../images/trash-icon.svg'
 import openEditPopupSrc from '../images/vector__edit.svg'
 import openAddPopupSrc from '../images/vector__add.svg'
@@ -6,12 +5,6 @@ import likeIconSrc from '../images/vector__like-button.svg'
 import lineIconSrc from '../images/logo/Line.svg'
 import vectorIconSrc from '../images/logo/Vector.svg'
 import photoEditIcon from '../images/profile-photo-edit.svg'
-
-const exitIconImages = document.querySelectorAll('img[alt="Botão de fechar o pop-up"]')
-
-Array.from(exitIconImages).forEach((item) => {
-  item.src = exitIconSrc
-})
 
 const trashIconImages = document.querySelector('.default-template').content.querySelector('.item__trash-icon')
 trashIconImages.src = trashIconSrc;

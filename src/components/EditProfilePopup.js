@@ -3,10 +3,10 @@ import PopupWithForm from "./PopupWithForm";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 export default function EditProfilePopup(props) {
-  const [name, setName] = useState('')
-  const [about, setAbout] = useState('')
-
   const currentUser = React.useContext(CurrentUserContext);
+
+  const [name, setName] = useState(currentUser.name)
+  const [about, setAbout] = useState(currentUser.about)
 
   function handleNameChange(evt) {
     setName(evt.target.value)
@@ -16,18 +16,18 @@ export default function EditProfilePopup(props) {
     setAbout(evt.target.value)
   }
 
-  React.useEffect(() => {
-    setName(currentUser.name);
-    setAbout(currentUser.about);
-  }, [currentUser]);
-
   function handleSubmit(evt) {
      evt.preventDefault();
 
-     props.onUpdateUser({
-       name,
-       about
-     });
+    if (name.replace(/ /g,'').length > 0 && about.replace(/ /g,'').length > 0) {
+      props.onUpdateUser({
+        name,
+        about
+      });
+    }
+    else {
+      alert('Digite valores válidos!')
+    }
   }
 
   return (

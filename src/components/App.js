@@ -45,8 +45,10 @@ export default function App() {
   }, []);
 
   function handleCardClick(evt) {
-    const cardElement = evt.target.parentElement
-    setSelectedCard(cardElement)
+    const cardElement = evt.target.parentElement;
+    const cardImage = cardElement.querySelector(".item__image").src;
+    const cardName = cardElement.querySelector(".item__title").textContent;
+    setSelectedCard({ cardImage, cardName })
     setPageOpacity(true)
   }
 
@@ -74,20 +76,22 @@ export default function App() {
   }
 
   function handleUpdateUser(data) {
-    api.editUserInfo(data)
-    currentUser.name = data.name
-    currentUser.about = data.about
+    api.editUserInfo(data).then(result => {
+      setCurrentUser(prev => ({...prev, name: result.name, about: result.about}))
+    })
+
     closeAllPopups()
   }
 
   function handleUpdateAvatar(avatar) {
-    api.changeProfilePicture(avatar)
-    currentUser.avatar = avatar;
+    api.changeProfilePicture(avatar).then(result => {
+      setCurrentUser(prev =>  ({...prev, avatar: result.avatar}))
+    })
     closeAllPopups()
   }
 
   function handleAddPlaceSubmit(name, link) {
-    api.addServerCard(name, link).then(newCard => {
+    api.addServerCard(name.replace(/ /g,''), link.replace(/ /g,'')).then(newCard => {
       setCards([newCard, ...cards])
     })
     closeAllPopups()
@@ -102,9 +106,6 @@ export default function App() {
             onCardLike={handleCardLike}
             onCardDelete={handleCardDelete}
             cardList={cards}
-            name={currentUser.name}
-            about={currentUser.about}
-            avatar={currentUser.avatar}
           />
           <Footer />
         </div>
