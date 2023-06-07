@@ -83,18 +83,47 @@ export default function App() {
     closeAllPopups()
   }
 
+  const isValidUrl = urlString => {
+    var urlPattern = new RegExp('^(https?:\\/\\/)?'+
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+
+    '((\\d{1,3}\\.){3}\\d{1,3}))'+
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+
+    '(\\?[;&a-z\\d%_.~+=-]*)?'+
+    '(\\#[-a-z\\d_]*)?$','i');
+    return !!urlPattern.test(urlString);
+  }
+
   function handleUpdateAvatar(avatar) {
-    api.changeProfilePicture(avatar).then(result => {
-      setCurrentUser(prev =>  ({...prev, avatar: result.avatar}))
-    })
-    closeAllPopups()
+    if (isValidUrl(avatar)) {
+      api.changeProfilePicture(avatar).then(result => {
+        setCurrentUser(prev =>  ({...prev, avatar: result.avatar}))
+      })
+      closeAllPopups()
+    }
+    else {
+      alert(`
+        Digite uma URL válida !
+
+        Exemplo de URL: https://exemplo.com
+      `)
+    }
   }
 
   function handleAddPlaceSubmit(name, link) {
-    api.addServerCard(name.replace(/ /g,''), link.replace(/ /g,'')).then(newCard => {
-      setCards([newCard, ...cards])
-    })
-    closeAllPopups()
+    if (name.replace(/ /g,'').length > 0 && isValidUrl(link)) {
+      api.addServerCard(name, link.replace(/ /g,'')).then(newCard => {
+        console.log(newCard)
+        setCards([newCard, ...cards])
+      })
+      closeAllPopups()
+    }
+    else {
+      alert(`
+      Digite valores válidos !
+
+      Exemplo de URL: https://exemplo.com
+      `)
+    }
   }
 
   return (

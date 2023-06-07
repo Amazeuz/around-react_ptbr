@@ -18,7 +18,7 @@ export default function AddPlacePopup(props) {
         <span className="form__input-error"></span>
       </label>
       <label className="form__field">
-        <input type='url' className="form__input" ref={cardLinkRef} placeholder="URL da imagem" />
+        <input type='url' className="form__input" ref={cardLinkRef} placeholder="URL da imagem: https://" />
         <span className="form__input-error"></span>
       </label>
     </PopupWithForm>
