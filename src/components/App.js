@@ -131,7 +131,11 @@ export default function App() {
       <div className="page">
         <div className={pageOpacity ? 'page-opacity' : ''} id="opacity-block">
           <Header />
-          <Main eventClicks={{onAddPlaceClick, onEditAvatarClick, onEditProfileClick, handleCardClick}}
+          <Main
+            onAddPlaceClick={onAddPlaceClick}
+            onEditAvatarClick={onEditAvatarClick}
+            onEditProfileClick={onEditProfileClick}
+            onCardClick={handleCardClick}
             onCardLike={handleCardLike}
             onCardDelete={handleCardDelete}
             cardList={cards}
